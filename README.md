@@ -1,3 +1,10 @@
+
+Descripción del Proyecto.
+
+App creada con app router.
+Se implementa el uso de components Link para las rutas, grupo de rutas, enrutamiento anidado, layouts compartidos, estados de carga, manejo de errores, componente side client, uso de apis y más.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
