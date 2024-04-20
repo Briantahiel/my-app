@@ -1,24 +1,206 @@
-
-
-/* h2 {
-  margin-bottom: 20px;
-  color: #333;
+/*BLOG*/
+.container_blog {
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  flex-wrap: wrap;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+.container_post {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 690px; 
+  margin: 20px auto;
 }
-li {
+
+.container_post h2 {
+  font-size: 24px;
   margin-bottom: 10px;
 }
-a {
+
+.container_post p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.container_post p:last-child {
+  margin-bottom: 20px;
+}
+
+.container_post a {
+  color: #007bff;
   text-decoration: none;
+}
+
+.container_post a:hover {
+  text-decoration: underline;
+}
+
+.container_post button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.container_post button:hover {
+  background-color: #c82333;
+}
+
+.link_padding {
+  margin-right: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.welcomeMessage {
+  font-size: 18px;
+  color: #007bff;
+}
+
+.loginMessage {
+  font-size: 16px;
+  color: #ff0000;
+}
+/*POSTEOS*/
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.container p {
+  font-size: 16px;
   color: #666;
 }
-a:hover {
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;
   color: #333;
-} */
+  margin-bottom: 20px;
+}
+
+.formLabel {
+  margin-bottom: 10px;
+}
+
+.formInput {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.formInput[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.submitBtn {
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitBtn:hover {
+  background-color: #e53935;
+}
+
+.cancelLink {
+  color: #2196f3;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+/*LOGIN*/
+.containerLoginRegister {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 24px;
+  color: rgb(15, 23, 42, 1);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 10px;
+  color: #666666;
+}
+
+.formInput {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.submitBtn {
+  background-color: #2196f3;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitBtn:hover {
+  background-color: #0d47a1;
+}
+
+.registerLink {
+  color: #2196f3;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.registerLink:hover {
+  color: #0d47a1;
+}
+
+/*NAVBAR*/
+
+.custom-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+  margin-top: 8px;
+}
+
+.custom-button:focus {
+  outline: none;
+}
+
+.custom-button:hover {
+  color: #0056b3;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -26,6 +208,7 @@ a:hover {
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  color:rgb(15, 23, 42, 1);
 }
 
 .description {

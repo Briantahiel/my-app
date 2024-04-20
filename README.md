@@ -4,6 +4,29 @@ Descripción del Proyecto.
 App creada con app router.
 Se implementa el uso de components Link para las rutas, grupo de rutas, enrutamiento anidado, layouts compartidos, estados de carga, manejo de errores, componente side client, uso de apis y más.
 
+Configuración de Firebase.
+Luego de haber creado la aplicación en Firebase procedo a instalar npm install firebase en mi app
+Continuo con los procedimientos para implementar la autenticación utilizando Google: https://firebase.google.com/docs/auth/web/google-signin?hl=es-419
+
+
+Diccionario de datos:
+Documentos:
+postId (Identificador único de la publicación)
+title: Título de la publicación (String)
+content: Contenido de la publicación (String)
+author: ID del autor de la publicación (String)
+createdAt: Fecha y hora de creación de la publicación (Timestamp)
+Subcolección "comments":
+commentId (Identificador único del comentario)
+text: Contenido del comentario (String)
+author: ID del autor del comentario (String)
+createdAt: Fecha y hora de creación del comentario (Timestamp)
+Subcolección "responses" (Para respuestas a comentarios):
+responseId (Identificador único de la respuesta)
+text: Contenido de la respuesta (String)
+author: ID del autor de la respuesta (String)
+createdAt: Fecha y hora de creación de la respuesta (Timestamp)
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
