@@ -10,10 +10,9 @@ import { db } from "@/app/firebase/firebaseConfig";
 import { useAuth } from "@/context";
 import BlogLayout from "../../blogLayout";
 import styles from "../../../page.module.css";
-
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-// Definición de las categorías
 const categorias = [
   "Animales",
   "Arte",
@@ -43,15 +42,17 @@ const categorias = [
 ];
 
 export default function Posteos() {
-  const { user, deletePost, users } = useAuth();
+  const { user, deletePost } = useAuth();
   const [titulo, setTitulo] = useState<string>("");
   const [descripcion, setDescripcion] = useState<string>("");
   const [categoria, setCategoria] = useState<string>("");
   const [comentarios, setComentarios] = useState<boolean>(false);
   const [posts, setPosts] = useState<any[]>([]);
+  const [users, setUsers] = useState<any[]>([]); 
+  const router = useRouter();
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, "posteos"), (snapshot) => {
+    const unsubscribePosts = onSnapshot(collection(db, "posteos"), (snapshot) => {
       const postData = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -59,8 +60,20 @@ export default function Posteos() {
       setPosts(postData);
     });
 
-    return () => unsubscribe();
+    const unsubscribeUsers = onSnapshot(collection(db, "usuarios"), (snapshot) => {
+      const userData = snapshot.docs.map((doc) => ({
+        userId: doc.id,
+        ...doc.data(),
+      }));
+      setUsers(userData);
+    });
+
+    return () => {
+      unsubscribePosts();
+      unsubscribeUsers();
+    };
   }, []);
+
   const addData = async () => {
     if (!user) {
       alert("Debes iniciar sesión para cargar un post.");
@@ -85,7 +98,7 @@ export default function Posteos() {
       setDescripcion("");
       setCategoria("");
       setComentarios(false);
-
+      router.refresh();
       alert("Post cargado correctamente");
     } catch (error) {
       alert("Error al cargar el post: " + error);
@@ -130,20 +143,15 @@ export default function Posteos() {
                 ))}
               </select>
             </label>
-            {/* <label className={styles.formLabel}>
-            Habilitar comentarios:
-            <input
-              className={styles.formInput}
-              type="checkbox"
-              checked={comentarios}
-              onChange={(e) => setComentarios(e.target.checked)}
-            />
-          </label> */}
             <button className={styles.submitBtn} onClick={addData}>
               Crear post
             </button>
           </div>
-        ) : null}
+        ) : (
+          <p className={styles.loginMessage}>
+            Debes iniciar sesión para ver y postear.
+          </p>
+        )}
         <div>
           {posts.map((post) => (
             <div key={post.id} className={styles.container_post}>
@@ -152,15 +160,9 @@ export default function Posteos() {
               <p>Categoría: {post.categoria}</p>
               <p>
                 Autor:{" "}
-                {post.userId
-                  ? users.find((user) => user.userId === post.userId)?.nombre ||
-                    "Desconocido"
-                  : "Desconocido"}
+                {users.find((u) => u.userId === post.userId)?.nombre || "Usuario desconocido"}
               </p>
-              <Link
-                href={`/blog/feed/${post.id}`}
-                className={styles.link_padding}
-              >
+              <Link href={`/blog/feed/${post.id}`} className={styles.link_padding}>
                 Ver más
               </Link>
               {user && post.userId === user.userId ? (

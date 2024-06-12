@@ -10,9 +10,6 @@
 //     try {
 //         const result = await signInWithPopup(auth, provider);
 //         const user = result.user;
-
-//         // Agregar usuario a la colección usuarios en Firestore con la data para poder 
-//         // poder acceder a ella ya que desde el proveedor de Google no se puede.
 //         await addDoc(collection(db, "usuarios"), {
 //             uid: user.uid,
 //             displayName: user.displayName

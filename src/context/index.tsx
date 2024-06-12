@@ -4,6 +4,7 @@ import { onAuthStateChanged, User as FirebaseUser } from "firebase/auth";
 import { auth } from "@/app/firebase/firebaseConfig";
 import { collection, deleteDoc, doc, getDocs, onSnapshot } from "firebase/firestore";
 import { db } from "@/app/firebase/firebaseConfig";
+import { useRouter } from "next/navigation";
 
 type User = {
     userId: string;
@@ -43,7 +44,7 @@ export default function AppWrapper({ children }: Props) {
     const [user, setUser] = useState<User | null>(null);
     const [posts, setPosts] = useState<Post[]>([]);
     const [users, setUsers] = useState<User[]>([]);
-
+    const router = useRouter();
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (authUser: FirebaseUser | null) => {

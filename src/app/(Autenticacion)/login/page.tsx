@@ -18,6 +18,7 @@ export default function Login() {
       console.log("Inicio de sesión exitoso");
       setEmail("");
       setPassword("");
+      router.refresh();
       router.push("/blog");
     } catch (err) {
       console.error("Error al iniciar sesión:", err);
@@ -32,6 +33,7 @@ export default function Login() {
           Correo:
           <input
             className={styles.formInput}
+            placeholder="email@example.com"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -43,6 +45,7 @@ export default function Login() {
             className={styles.formInput}
             type="password"
             value={password}
+            placeholder="Mínimo 6 caracteres"
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>

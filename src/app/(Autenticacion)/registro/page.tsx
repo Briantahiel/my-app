@@ -65,6 +65,7 @@ export default function Register() {
           Correo:
           <input
             className={styles.formInput}
+            placeholder="email@example.com"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -74,6 +75,7 @@ export default function Register() {
           Contraseña:
           <input
             className={styles.formInput}
+            placeholder="Mínimo 6 caracteres"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

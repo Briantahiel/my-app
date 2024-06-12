@@ -7,9 +7,12 @@ import Image from "next/image";
 import logo from "../../../public/blogify.png";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
+import { useRouter } from "next/navigation";
+
 export default function Navbar() {
   const { user, signOut } = useAuth();
   const [isLoggedin, setIsLoggedin] = useState<any>(user);
+  const router = useRouter();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
