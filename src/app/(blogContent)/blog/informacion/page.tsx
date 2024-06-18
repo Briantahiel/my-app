@@ -6,7 +6,7 @@ export default function recursos() {
     <BlogLayout>
       <div className={styles.container}>
         <h2>Más sobre el proyecto</h2>
-        Este proyecto forma parte del proyecto de Hedy Softaware en el área de Desarrollo web con Nextjs
+        Este proyecto forma parte del proyecto de Hedy Software en el área de Desarrollo web con Nextjs
       </div>
     </BlogLayout>
   );
